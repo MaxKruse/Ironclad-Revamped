@@ -1,0 +1,67 @@
+{
+  "CastAway:DefaultCommonPower": {
+    "NAME": "Hold Place",
+    "DESCRIPTION": "Gain !M! castaway:Keyword.",
+    "UPGRADE_DESCRIPTION": "Gain !M! castaway:Keywords."
+  },
+  "CastAway:DefaultUncommonAttack": {
+    "NAME": "Big slap",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "CastAway:DefaultUncommonSkill": {
+    "NAME": "A Better Defend",
+    "DESCRIPTION": "Gain !B! Plated Armor. Affected by Dexterity."
+  },
+  "CastAway:DefaultUncommonPower": {
+    "NAME": "Weirdness",
+    "DESCRIPTION": "Gain X castaway:Keywords.",
+    "UPGRADE_DESCRIPTION": "Gain X +1 castaway:Keywords."
+  },
+  "CastAway:DefaultRareAttack": {
+    "NAME": "TOUCH",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "CastAway:DefaultRareSkill": {
+    "NAME": "For Each Loop x2",
+    "DESCRIPTION": "Apply !M! Vulnerable to all enemies, 2 times.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to all enemies, 3 times."
+  },
+  "CastAway:DefaultRarePower": {
+    "NAME": "In-Progress Form",
+    "DESCRIPTION": "At the start of your turn, play a TOUCH."
+  },
+  "CastAway:DefaultAttackWithVariable": {
+    "NAME": "Special Strike",
+    "DESCRIPTION": "Deal !D! damage [E] times. NL (Deal !CastAway:ENERGY_DAMAGE! damage total.)"
+  },
+  "CastAway:DefaultSecondMagicNumberSkill": {
+    "NAME": "Cool 2 Number Card",
+    "DESCRIPTION": "Apply !M! Vulnerable and !CastAway:SecondMagic! poison to an enemy."
+  },
+  "CastAway:OrbSkill": {
+    "NAME": "Get Orb",
+    "DESCRIPTION": "Channel 1 Default Orb."
+  },
+
+
+  "CastAway:DefaultStrike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "CastAway:DefaultDefend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! block."
+  },
+  "CastAway:Handful": {
+    "NAME": "Handful",
+    "DESCRIPTION": "Draw !M! cards."
+  },
+  "CastAway:Throw": {
+    "NAME": "Throw",
+    "DESCRIPTION": "Deal !D! damage. Discard !M! cards. Deal !M! damage for each card discarded."
+  },
+  "CastAway:Lost_Souls": {
+    "NAME": "Lost Souls",
+    "DESCRIPTION": "Deal !D! Damage for each card in your discard pile that says Exhaust or Discard. Exhaust those cards."
+  }
+}
