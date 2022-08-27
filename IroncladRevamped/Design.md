@@ -4,9 +4,10 @@
 
 ### Buffs
 
-1. Thrown: Draw 1 card next turn.
+1. Compensate: Draw 1 card next turn.
 2. Lost: Gain 1 Energy for the next 3 turns.
 3. Discovered: At the start of your turn, apply 2 Block Return to all Enemies. (Gain 2 Block when Attacking an Enemy.)
+4. Collect: Gain 3 Block for each time you draw a card.
 
 ### Discard/Exhaust based
 
@@ -24,6 +25,7 @@
 11. Exhaust 5 cards from your Draw pile. Gain 1 Lost.
 12. Unplayable. When discarded, Draw 2 and gain 5 Block.
 13. Unplayable. When exhausted, Deal 10 damage to all enemies at the start of your turn.
+14. **Hoarder**: Gain !M! Collect.
 
 #### Relics
 1. Deal X damage to all enemies per discard (except end-turn)
@@ -45,6 +47,7 @@
 9. Deal 4 Damage to all Enemies equal to the number of cards in hand. Draw 1.
 10. Draw 2 random Cards from your discard pile. You cannot draw from your Draw pile this turn.
 11. Unplayable. When added to hand by Draw, gain 2 Energy and 10 Block.
+12. **Instant Feedback**: Deal damage for each card draw.
 
 #### Relics
 
@@ -65,7 +68,7 @@
 6. Apply 1 Weak. If the Enemy is Vulnerable, apply 1 Weak.
 7. Gain 8 Block. If you are weakened, gain 1 Strength.
 8. Deal 6 Damage. If you are Vulnerable, gain 1 Dexterity.
-9. (VISIONARY FORM) On the Start of your turn, Scry 1. Play that card.
+9. (VISIONARY FORM) On the Start of your turn, Scry 2. Play that card.
 10. For each card in your Exhaust pile, gain 1 Block. Affected by Dexterity.
 11. For each card in your Draw pile, gain an equal amount of Strength next turn. Lose that amount of Strength next turn.
 12. Lose all your Strength and Dexterity. Exhaust your Discard pile. Gain 5 Block for each Exhausted Card. Deal 5 Damage to all Enemies for each Exhausted card.

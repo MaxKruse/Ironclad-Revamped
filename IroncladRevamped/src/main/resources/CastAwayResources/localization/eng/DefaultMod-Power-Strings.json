@@ -1,10 +1,22 @@
 {
-"CastAway:CommonPower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
-},
-"CastAway:RarePower": {
-        "NAME": "Placeholder Power",
-        "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
-}
+        "CastAway:CommonPower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": ["You applied #b", " keyword.", " keywords."]
+        },
+        "CastAway:RarePower": {
+                "NAME": "Placeholder Power",
+                "DESCRIPTIONS": ["At the start of your turn, TOUCH #b", " enemy." , " enemies."]
+        },
+        "CastAway:CollectBlockPower": {
+                "NAME": "Collect",
+                "DESCRIPTIONS": ["Gain block for each card you draw."]
+        },
+        "CastAway:FeedbackPower": {
+                "NAME": "Feedback",
+                "DESCRIPTIONS": ["Deal damage to a random enemy when you draw, except at Turn Start."]
+        },
+        "CastAway:CompensatePower": {
+                "NAME": "Compensate",
+                "DESCRIPTIONS": ["Draw an additional card on your turn."]
+        }
 }

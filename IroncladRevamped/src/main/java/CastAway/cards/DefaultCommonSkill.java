@@ -1,7 +1,7 @@
-package CastAway.cards.Skills.common;
+package CastAway.cards;
 
-import CastAway.cards.AbstractDynamicCard;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import basemod.AutoAdd;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -10,7 +10,8 @@ import CastAway.characters.TheCastAway;
 
 import static CastAway.DefaultMod.makeCardPath;
 
-public class Handful extends AbstractDynamicCard {
+@AutoAdd.Ignore
+public class DefaultCommonSkill extends AbstractDynamicCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -21,7 +22,7 @@ public class Handful extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(Handful.class.getSimpleName());
+    public static final String ID = DefaultMod.makeID(DefaultCommonSkill.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");
 
     // /TEXT DECLARATION/
@@ -29,31 +30,30 @@ public class Handful extends AbstractDynamicCard {
 
     // STAT DECLARATION 	
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheCastAway.Enums.COLOR_GRAY;
 
-    private static final int COST = 0;
-    private static final int DRAW = 2;
-    private static final int DRAW_UPGRADED = 1;
+    private static final int COST = 1;
+    private static final int BLOCK = 5;
+    private static final int UPGRADE_PLUS_BLOCK = 3;
 
 
     // /STAT DECLARATION/
 
 
-    public Handful() {
+    public DefaultCommonSkill() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = DRAW;
-        draw = DRAW;
+        baseBlock = BLOCK;
+
+
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DrawCardAction(magicNumber)
-        );
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
     }
 
     //Upgraded stats.
@@ -61,7 +61,7 @@ public class Handful extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(DRAW_UPGRADED);
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
             initializeDescription();
         }
     }

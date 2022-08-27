@@ -44,6 +44,26 @@
   },
 
 
+
+
+  "CastAway:Handful": {
+    "NAME": "Handful",
+    "DESCRIPTION": "Draw !M! cards."
+  },
+  "CastAway:Hoarder": {
+    "NAME": "Hoarder",
+    "DESCRIPTION": "Gain !M! castaway:Collect."
+  },
+  "CastAway:MakeItRight": {
+    "NAME": "Make It Right",
+    "DESCRIPTION": "Gain !M! castaway:Compensate."
+  },
+
+
+
+
+
+
   "CastAway:DefaultStrike": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage."
@@ -52,15 +72,20 @@
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! block."
   },
-  "CastAway:Handful": {
-    "NAME": "Handful",
-    "DESCRIPTION": "Draw !M! cards."
-  },
   "CastAway:Throw": {
     "NAME": "Throw",
     "DESCRIPTION": "Deal !D! damage. Discard !M! cards. Deal !M! damage for each card discarded."
   },
-  "CastAway:Lost_Souls": {
+  "CastAway:InstantFeedback": {
+    "NAME": "Instant Feedback",
+    "DESCRIPTION": "Deal !M! damage to a random enemy for each card you draw, except Turn Start."
+  },
+
+
+
+
+
+  "CastAway:LostSouls": {
     "NAME": "Lost Souls",
     "DESCRIPTION": "Deal !D! Damage for each card in your discard pile that says Exhaust or Discard. Exhaust those cards."
   }

@@ -1,67 +1,65 @@
-package CastAway.cards.Skills.common;
+package CastAway.cards;
 
-import CastAway.cards.AbstractDynamicCard;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import CastAway.DefaultMod;
 import CastAway.characters.TheCastAway;
 
 import static CastAway.DefaultMod.makeCardPath;
 
-public class Handful extends AbstractDynamicCard {
+public class DefaultUncommonSkill extends AbstractDynamicCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
      *
-     * Defend Gain 5 (8) block.
+     * A Better Defend Gain 1 Plated Armor. Affected by Dexterity.
      */
 
+    // TEXT DECLARATION 
 
-    // TEXT DECLARATION
-
-    public static final String ID = DefaultMod.makeID(Handful.class.getSimpleName());
+    public static final String ID = DefaultMod.makeID(DefaultUncommonSkill.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");
 
     // /TEXT DECLARATION/
 
-
     // STAT DECLARATION 	
 
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheCastAway.Enums.COLOR_GRAY;
 
-    private static final int COST = 0;
-    private static final int DRAW = 2;
-    private static final int DRAW_UPGRADED = 1;
+    private static final int COST = 1;
+    private static final int UPGRADE_REDUCED_COST = 0;
 
+    private static final int BLOCK = 1;
+    private static final int UPGRADE_PLUS_BLOCK = 2;
 
     // /STAT DECLARATION/
 
 
-    public Handful() {
+    public DefaultUncommonSkill() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = DRAW;
-        draw = DRAW;
+        baseBlock = BLOCK;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new DrawCardAction(magicNumber)
-        );
+                new ApplyPowerAction(p, p, new PlatedArmorPower(p, block), block));
     }
 
-    //Upgraded stats.
+    // Upgraded stats.
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(DRAW_UPGRADED);
+            upgradeBlock(UPGRADE_PLUS_BLOCK);
+            upgradeBaseCost(UPGRADE_REDUCED_COST);
             initializeDescription();
         }
     }

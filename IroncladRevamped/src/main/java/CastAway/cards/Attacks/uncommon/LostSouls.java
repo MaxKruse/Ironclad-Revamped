@@ -1,34 +1,28 @@
 package CastAway.cards.Attacks.uncommon;
 
 import CastAway.cards.AbstractDynamicCard;
-import basemod.AutoAdd;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import CastAway.DefaultMod;
 import CastAway.characters.TheCastAway;
 
-import java.util.List;
-
 import static CastAway.DefaultMod.makeCardPath;
 
-// public class Lost_Souls extends AbstractDynamicCard
+// public class LostSouls extends AbstractDynamicCard
 // @AutoAdd.Ignore // Remove this line when you make a template. Refer to https://github.com/daviscook477/BaseMod/wiki/AutoAdd if you want to know what it does.
-public class Lost_Souls extends AbstractDynamicCard {
+public class LostSouls extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(Lost_Souls.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
+    public static final String ID = DefaultMod.makeID(LostSouls.class.getSimpleName()); // USE THIS ONE FOR THE TEMPLATE;
     //public static final String ID = DefaultMod.makeID("DefaultCommonAttack"); // DELETE THIS ONE.
-    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("Lost_Souls.png");
+    public static final String IMG = makeCardPath("Attack.png");// "public static final String IMG = makeCardPath("LostSouls.png");
     // This does mean that you will need to have an image with the same NAME as the card in your image folder for it to run correctly.
 
 
@@ -51,7 +45,7 @@ public class Lost_Souls extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
 
-    public Lost_Souls() { // public Lost_Souls() - This one and the one right under the imports are the most important ones, don't forget them
+    public LostSouls() { // public LostSouls() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
     }
@@ -64,8 +58,8 @@ public class Lost_Souls extends AbstractDynamicCard {
         CardGroup discardPileCards = AbstractDungeon.player.discardPile;
 
         for (AbstractCard card : discardPileCards.group) {
-            boolean containsExhaust = card.rawDescription.toLowerCase().contains("exhaust");
-            boolean containsDiscard = card.rawDescription.toLowerCase().contains("discard");
+            boolean containsExhaust = card.exhaust || card.rawDescription.toLowerCase().contains("exhaust");
+            boolean containsDiscard = card.discard > 0 ||card.rawDescription.toLowerCase().contains("discard");;
 
             if (containsExhaust || containsDiscard) {
                 AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card, discardPileCards));
