@@ -74,11 +74,15 @@
   },
   "CastAway:Throw": {
     "NAME": "Throw",
-    "DESCRIPTION": "Deal !D! damage. Discard !M! cards. Deal !M! damage for each card discarded."
+    "DESCRIPTION": "Deal !D! damage. NL Discard !M! cards. NL Deal !M! damage for each card discarded."
   },
   "CastAway:InstantFeedback": {
     "NAME": "Instant Feedback",
     "DESCRIPTION": "Deal !M! damage to a random enemy for each card you draw, except Turn Start."
+  },
+  "CastAway:CutLoose": {
+    "NAME": "Cut Loose",
+    "DESCRIPTION": "Deal !D! damage to all enemies for each card in your hand. Discard !M!. Draw !M!. NL (Deal !CastAway:HAND_DAMAGE! damage total.)"
   },
 
 
@@ -87,6 +91,6 @@
 
   "CastAway:LostSouls": {
     "NAME": "Lost Souls",
-    "DESCRIPTION": "Deal !D! Damage for each card in your discard pile that says Exhaust or Discard. Exhaust those cards."
+    "DESCRIPTION": "Deal !D! Damage for each card in your discard pile that says Exhaust or Discard. NL Exhaust those cards."
   }
 }

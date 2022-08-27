@@ -68,6 +68,7 @@ public class Throw extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = DISCARD_AMOUNT;
+
     }
 
 

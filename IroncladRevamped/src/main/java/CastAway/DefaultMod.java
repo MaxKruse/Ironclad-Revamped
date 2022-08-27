@@ -1,5 +1,6 @@
 package CastAway;
 
+import CastAway.variables.HandDamage;
 import basemod.*;
 import basemod.eventUtil.AddEventParams;
 import basemod.helpers.RelicType;
@@ -421,6 +422,7 @@ public class DefaultMod implements
         // Add the Custom Dynamic variables
         BaseMod.addDynamicVariable(new DefaultCustomVariable());
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
+        BaseMod.addDynamicVariable(new HandDamage());
         
         logger.info("Adding cards");
         // Add the cards

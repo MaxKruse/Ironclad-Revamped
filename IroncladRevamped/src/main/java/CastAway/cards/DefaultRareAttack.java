@@ -1,5 +1,6 @@
 package CastAway.cards;
 
+import basemod.AutoAdd;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -13,6 +14,7 @@ import CastAway.characters.TheCastAway;
 
 import static CastAway.DefaultMod.makeCardPath;
 
+@AutoAdd.Ignore
 public class DefaultRareAttack extends AbstractDynamicCard {
 
     /*

@@ -34,7 +34,7 @@ public class Handful extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheCastAway.Enums.COLOR_GRAY;
 
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final int DRAW = 2;
     private static final int DRAW_UPGRADED = 1;
 

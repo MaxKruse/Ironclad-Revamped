@@ -44,7 +44,7 @@
 6. Lose 5 HP. Draw 2.
 7. Lose 1 Dexterity. Draw 4.
 8. Deal 12 Damage to all Enemies. Draw 2.
-9. Deal 4 Damage to all Enemies equal to the number of cards in hand. Draw 1.
+9. **Cut Loose**: Deal 4 Damage to all Enemies equal to the number of cards in hand. Discard 1. Draw 1.
 10. Draw 2 random Cards from your discard pile. You cannot draw from your Draw pile this turn.
 11. Unplayable. When added to hand by Draw, gain 2 Energy and 10 Block.
 12. **Instant Feedback**: Deal damage for each card draw.
