@@ -32,5 +32,13 @@
       "compensate"
     ],
     "DESCRIPTION": "Draw an additional card on the start of your turn."
+  },
+  {
+    "PROPER_NAME": "Lost",
+    "NAMES": [
+      "Lost",
+      "lost"
+    ],
+    "DESCRIPTION": "Gain an additional energy for the next turn(s)."
   }
 ]

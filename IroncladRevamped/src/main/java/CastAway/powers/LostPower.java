@@ -1,30 +1,31 @@
 package CastAway.powers;
 
-import CastAway.characters.TheCastAway;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import CastAway.DefaultMod;
 import CastAway.util.TextureLoader;
-
-import java.util.List;
-import java.util.stream.Collectors;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import static CastAway.DefaultMod.makePowerPath;
 
-public class CollectBlockPower extends AbstractPower implements CloneablePowerInterface {
+public class LostPower extends AbstractPower implements CloneablePowerInterface {
     public AbstractCreature source;
 
-    public static final String POWER_ID = DefaultMod.makeID("CollectBlockPower");
+    public static final String POWER_ID = DefaultMod.makeID("LostPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -34,14 +35,12 @@ public class CollectBlockPower extends AbstractPower implements CloneablePowerIn
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("placeholder_power84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("placeholder_power32.png"));
 
-    private int ignoreNext = AbstractDungeon.player.masterHandSize;
-
-    public CollectBlockPower(final AbstractCreature owner, final AbstractCreature source, final int amount) {
+    public LostPower(final AbstractCreature owner, final AbstractCreature source, final int turns) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = owner;
-        this.amount = amount;
+        this.amount = turns;
         this.source = source;
 
         type = PowerType.BUFF;
@@ -56,34 +55,26 @@ public class CollectBlockPower extends AbstractPower implements CloneablePowerIn
 
     @Override
     public void atStartOfTurn() {
-        ignoreNext = AbstractDungeon.player.masterHandSize;
+        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
     }
 
     @Override
-    public void onCardDraw(AbstractCard card) {
-        TheCastAway.logger.info("CollectBlockPower: onCardDraw " + (ignoreNext > 0));
-
-        if (ignoreNext > 0) {
-            ignoreNext--;
-            return;
+    public void atEndOfTurn(final boolean isPlayer) {
+        amount--;
+        if (amount <= 0) {
+            // remove ourselfs
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, owner, LostPower.POWER_ID));
         }
-
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, this.amount));
-    }
-
-    @Override
-    public void atEndOfRound() {
-        ignoreNext = AbstractDungeon.player.masterHandSize;
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+            description = DESCRIPTIONS[0];
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new CollectBlockPower(owner, source, amount);
+        return new LostPower(owner, source, amount);
     }
 }

@@ -22,7 +22,7 @@
 8. Select 1 card in your Discard pile. Play that card and exhaust it.
 9. **Lost Souls**: Deal Damage for each Card in your discard pile that says "Exhaust" or "Discard". Exhaust those cards.
 10. Discard 1. Permanently Upgrade this card and Exhaust it.
-11. Exhaust 5 cards from your Draw pile. Gain 1 Lost.
+11. **Losing Yourself** Exhaust 3 cards from your Draw pile. Gain 1 Lost.
 12. Unplayable. When discarded, Draw 2 and gain 5 Block.
 13. Unplayable. When exhausted, Deal 10 damage to all enemies at the start of your turn.
 14. **Hoarder**: Gain !M! Collect.

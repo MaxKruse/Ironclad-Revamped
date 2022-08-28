@@ -58,8 +58,11 @@
     "NAME": "Make It Right",
     "DESCRIPTION": "Gain !M! castaway:Compensate."
   },
-
-
+  "CastAway:LosingYourself": {
+    "NAME": "Losing Yourself",
+    "DESCRIPTION": "Exhaust !CastAway:DECK_EXHAUST! random cards from your draw pile. NL Gain !M! castaway:Lost.",
+    "UPGRADE_DESCRIPTION": "Exhaust !CastAway:DECK_EXHAUST! cards from your draw pile. NL Gain !M! castaway:Lost."
+  },
 
 
 
@@ -82,7 +85,7 @@
   },
   "CastAway:CutLoose": {
     "NAME": "Cut Loose",
-    "DESCRIPTION": "Deal !D! damage to all enemies for each card in your hand. Discard !M!. Draw !M!. NL (Deal !CastAway:HAND_DAMAGE! damage total.)"
+    "DESCRIPTION": "Deal !D! damage to all enemies for each card in your hand. Discard !M!. Draw !M!."
   },
 
 

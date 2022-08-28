@@ -18,5 +18,9 @@
         "CastAway:CompensatePower": {
                 "NAME": "Compensate",
                 "DESCRIPTIONS": ["Draw an additional card on your turn."]
+        },
+        "CastAway:LostPower": {
+                "NAME": "Lost",
+                "DESCRIPTIONS" : ["Gain 1 energy next turn."]
         }
 }
