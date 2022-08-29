@@ -13,7 +13,7 @@
 
 #### Cards
 1. **Throw**: Deal damage based on number of cards discarded.
-2. Receive HP for discarding your entire hand, X HP per card
+2. **Healing Gift**: Receive HP for discarding your entire hand, X HP per card.
 3. Draw 4 Cards. Exhaust 3 Cards from your Hand. Gain 1 Discovered.
 4. Gain Dex/Strength/Thrown per X cards discarded.
 5. On discard, gain Dex/Strength/Thrown

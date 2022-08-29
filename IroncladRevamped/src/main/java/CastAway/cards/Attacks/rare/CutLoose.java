@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import CastAway.DefaultMod;
 import CastAway.characters.TheCastAway;
+import com.megacrit.cardcrawl.relics.Brimstone;
 
 import static CastAway.DefaultMod.makeCardPath;
 
@@ -58,7 +59,6 @@ public class CutLoose extends AbstractDynamicCard {
         baseMagicNumber = magicNumber = MAGIC_NUMBER;
         isMultiDamage = true;
     }
-
 
     // Actions the card should do.
     @Override

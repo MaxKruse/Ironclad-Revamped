@@ -1,10 +1,13 @@
 package CastAway.cards.Skills.uncommon;
 
-import CastAway.actions.ExhaustFromDeckAction;
-import CastAway.actions.RandomExhaustFromDeckAction;
 import CastAway.cards.AbstractDynamicCard;
-import CastAway.powers.LostPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import basemod.abstracts.CustomCard;
+import basemod.helpers.BaseModCardTags;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
+import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,7 +18,7 @@ import CastAway.characters.TheCastAway;
 
 import static CastAway.DefaultMod.makeCardPath;
 
-public class LosingYourself extends AbstractDynamicCard {
+public class HealingGift extends AbstractDynamicCard {
 
     /*
      * Wiki-page: https://github.com/daviscook477/BaseMod/wiki/Custom-Cards
@@ -26,49 +29,49 @@ public class LosingYourself extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = DefaultMod.makeID(LosingYourself.class.getSimpleName());
+    public static final String ID = DefaultMod.makeID(HealingGift.class.getSimpleName());
     public static final String IMG = makeCardPath("Skill.png");
 
     // /TEXT DECLARATION/
+
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
 
-
     // STAT DECLARATION 	
 
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheCastAway.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;
-    private static final int MAGIC_NUMBER = 3;
-    private static final int UPGRADE_PLUS_MAGIC = 2;
-
-    private static final int DECK_EXHAUST = 5;
-    private static final int UPGRADE_PLUS_DECK_EXHAUST = -2;
+    private static final int COST = 2;
+    private static final int MAGIC = 2;
+    private static final int UPGRADE_PLUS_MAGIC = 1;
 
 
     // /STAT DECLARATION/
 
 
-    public LosingYourself() {
+    public HealingGift() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = MAGIC_NUMBER;
-        deckExhaust = baseDeckExhaust = DECK_EXHAUST;
+        baseMagicNumber = MAGIC;
+
         exhaust = true;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!upgraded) {
-            AbstractDungeon.actionManager.addToBottom(new RandomExhaustFromDeckAction(p, deckExhaust));
-        } else {
-            AbstractDungeon.actionManager.addToBottom(new ExhaustFromDeckAction(p, deckExhaust));
-        }
+        int handSize = AbstractDungeon.player.hand.size();
 
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LostPower(p, p, MAGIC_NUMBER)));
+        AbstractDungeon.actionManager.addToBottom(new SelectCardsInHandAction(handSize - 1, "Discard any number of cards", false, true, c -> true, cards -> {
+
+            for (AbstractCard card : cards) {
+                AbstractDungeon.actionManager.addToBottom(new DiscardSpecificCardAction(card));
+                AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, magicNumber));
+            }
+
+        }));
     }
 
     //Upgraded stats.
@@ -77,8 +80,6 @@ public class LosingYourself extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_MAGIC);
-            upgradeDeckExhaust(UPGRADE_PLUS_DECK_EXHAUST);
-            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

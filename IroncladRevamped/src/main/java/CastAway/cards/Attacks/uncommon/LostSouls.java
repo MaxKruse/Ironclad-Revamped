@@ -49,13 +49,13 @@ public class LostSouls extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
         isMultiDamage = true;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
         CardGroup discardPileCards = AbstractDungeon.player.discardPile;
 
         for (AbstractCard card : discardPileCards.group) {
@@ -63,8 +63,7 @@ public class LostSouls extends AbstractDynamicCard {
             boolean containsDiscard = card.discard > 0 ||card.rawDescription.toLowerCase().contains("discard");;
 
             if (containsExhaust || containsDiscard) {
-                AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card, discardPileCards));
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn)));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.HP_LOSS)));
             }
         }
     }

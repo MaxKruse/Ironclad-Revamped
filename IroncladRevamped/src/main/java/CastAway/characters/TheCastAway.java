@@ -4,6 +4,7 @@ import CastAway.cards.Attacks.DefaultStrike;
 import CastAway.cards.Attacks.common.Throw;
 import CastAway.cards.Skills.DefaultDefend;
 import CastAway.cards.Skills.common.Handful;
+import CastAway.relics.OptimismRelic;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
@@ -24,6 +25,8 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.relics.Brimstone;
 import com.megacrit.cardcrawl.relics.GoldenIdol;
+import com.megacrit.cardcrawl.relics.HoveringKite;
+import com.megacrit.cardcrawl.relics.MembershipCard;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -185,8 +188,7 @@ public class TheCastAway extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
 
-        retVal.add(Brimstone.ID);
-        retVal.add(GoldenIdol.ID);
+        retVal.add(OptimismRelic.ID);
 
         return retVal;
     }

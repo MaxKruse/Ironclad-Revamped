@@ -30,5 +30,12 @@
       ".",
       "Select a card to bottle for "
     ]
+  },
+  "CastAway:OptimismRelic": {
+    "NAME": "Optimism",
+    "FLAVOUR": "You lost everything, but are much better at keeping and valuing things now.",
+    "DESCRIPTIONS": [
+      "Gain 10% Extra gold. Items in the shop cost 10% less."
+    ]
   }
 }

@@ -1,5 +1,6 @@
 package CastAway;
 
+import CastAway.relics.OptimismRelic;
 import CastAway.variables.DeckExhaust;
 import basemod.*;
 import basemod.eventUtil.AddEventParams;
@@ -17,6 +18,7 @@ import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import CastAway.cards.*;
@@ -390,6 +392,7 @@ public class DefaultMod implements
         //BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheCastAway.Enums.COLOR_GRAY);
         //BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheCastAway.Enums.COLOR_GRAY);
         //BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheCastAway.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new OptimismRelic(), TheCastAway.Enums.COLOR_GRAY);
         
         // This adds a relic to the Shared pool. Every character can find this relic.
         // BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
@@ -397,7 +400,7 @@ public class DefaultMod implements
         // Mark relics as seen - makes it visible in the compendium immediately
         // If you don't have this it won't be visible in the compendium until you see them in game
         // (the others are all starters so they're marked as seen in the character file)
-        // UnlockTracker.markRelicAsSeen(BottledPlaceholderRelic.ID);
+        UnlockTracker.markRelicAsSeen(OptimismRelic.ID);
         logger.info("Done adding relics!");
     }
     
@@ -414,8 +417,6 @@ public class DefaultMod implements
         // Add the Custom Dynamic Variables
         logger.info("Add variables");
         // Add the Custom Dynamic variables
-        BaseMod.addDynamicVariable(new DefaultCustomVariable());
-        BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
         BaseMod.addDynamicVariable(new DeckExhaust());
         
         logger.info("Adding cards");

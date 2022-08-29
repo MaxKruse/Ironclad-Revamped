@@ -1,51 +1,4 @@
 {
-  "CastAway:DefaultCommonPower": {
-    "NAME": "Hold Place",
-    "DESCRIPTION": "Gain !M! castaway:Keyword.",
-    "UPGRADE_DESCRIPTION": "Gain !M! castaway:Keywords."
-  },
-  "CastAway:DefaultUncommonAttack": {
-    "NAME": "Big slap",
-    "DESCRIPTION": "Deal !D! damage."
-  },
-  "CastAway:DefaultUncommonSkill": {
-    "NAME": "A Better Defend",
-    "DESCRIPTION": "Gain !B! Plated Armor. Affected by Dexterity."
-  },
-  "CastAway:DefaultUncommonPower": {
-    "NAME": "Weirdness",
-    "DESCRIPTION": "Gain X castaway:Keywords.",
-    "UPGRADE_DESCRIPTION": "Gain X +1 castaway:Keywords."
-  },
-  "CastAway:DefaultRareAttack": {
-    "NAME": "TOUCH",
-    "DESCRIPTION": "Deal !D! damage."
-  },
-  "CastAway:DefaultRareSkill": {
-    "NAME": "For Each Loop x2",
-    "DESCRIPTION": "Apply !M! Vulnerable to all enemies, 2 times.",
-    "UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to all enemies, 3 times."
-  },
-  "CastAway:DefaultRarePower": {
-    "NAME": "In-Progress Form",
-    "DESCRIPTION": "At the start of your turn, play a TOUCH."
-  },
-  "CastAway:DefaultAttackWithVariable": {
-    "NAME": "Special Strike",
-    "DESCRIPTION": "Deal !D! damage [E] times. NL (Deal !CastAway:ENERGY_DAMAGE! damage total.)"
-  },
-  "CastAway:DefaultSecondMagicNumberSkill": {
-    "NAME": "Cool 2 Number Card",
-    "DESCRIPTION": "Apply !M! Vulnerable and !CastAway:SecondMagic! poison to an enemy."
-  },
-  "CastAway:OrbSkill": {
-    "NAME": "Get Orb",
-    "DESCRIPTION": "Channel 1 Default Orb."
-  },
-
-
-
-
   "CastAway:Handful": {
     "NAME": "Handful",
     "DESCRIPTION": "Draw !M! cards."
@@ -60,16 +13,17 @@
   },
   "CastAway:LosingYourself": {
     "NAME": "Losing Yourself",
-    "DESCRIPTION": "Exhaust !CastAway:DECK_EXHAUST! random cards from your draw pile. NL Gain !M! castaway:Lost.",
-    "UPGRADE_DESCRIPTION": "Exhaust !CastAway:DECK_EXHAUST! cards from your draw pile. NL Gain !M! castaway:Lost."
+    "DESCRIPTION": "Exhaust !CastAway:DECK_EXHAUST! random cards from your draw pile. NL Gain !M! castaway:Lost. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Exhaust !CastAway:DECK_EXHAUST! cards from your draw pile. NL Gain !M! castaway:Lost. NL Exhaust"
   },
-
-
-
-
+  "CastAway:ProtectAll": {
+    "NAME": "Protect All",
+    "DESCRIPTION": "Gain !B! block. NL Draw until your hand is full. NL Gain !M! Strength. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !B! block. NL Draw until your hand is full. NL Gain !M! Strength."
+  },
   "CastAway:DefaultStrike": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage."
+    "DESCRIPTION": "Deal !D! castaway:Damage."
   },
   "CastAway:DefaultDefend": {
     "NAME": "Defend",
@@ -77,23 +31,22 @@
   },
   "CastAway:Throw": {
     "NAME": "Throw",
-    "DESCRIPTION": "Deal !D! damage. NL Discard !M! cards. NL Deal !M! damage for each card discarded."
+    "DESCRIPTION": "Deal !D! castaway:Damage. NL Discard !M! cards. NL Deal !M! castaway:Burning !M! times."
   },
   "CastAway:InstantFeedback": {
     "NAME": "Instant Feedback",
-    "DESCRIPTION": "Deal !M! damage to a random enemy for each card you draw, except Turn Start."
+    "DESCRIPTION": "Deal !M! castaway:Burning to a random enemy for each card you draw, except Turn Start."
   },
   "CastAway:CutLoose": {
     "NAME": "Cut Loose",
-    "DESCRIPTION": "Deal !D! damage to all enemies for each card in your hand. Discard !M!. Draw !M!."
+    "DESCRIPTION": "Deal !D! castaway:Burning to all enemies for each card in your hand. Discard !M!. Draw !M!."
   },
-
-
-
-
-
   "CastAway:LostSouls": {
     "NAME": "Lost Souls",
-    "DESCRIPTION": "Deal !D! Damage for each card in your discard pile that says Exhaust or Discard. NL Exhaust those cards."
+    "DESCRIPTION": "Deal !D! castaway:Burning for each card in your discard pile that says Exhaust or Discard. NL Exhaust."
+  },
+  "CastAway:HealingGift": {
+    "NAME":  "Healing Gift",
+    "DESCRIPTION": "Discard any number of cards from your hand. NL Heal !M! for each card. NL Exhaust."
   }
 }
