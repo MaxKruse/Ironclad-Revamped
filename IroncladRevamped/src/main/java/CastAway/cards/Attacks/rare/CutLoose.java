@@ -37,14 +37,14 @@ public class CutLoose extends AbstractDynamicCard {
     // STAT DECLARATION
 
     private static final CardRarity RARITY = CardRarity.RARE; //  Up to you, I like auto-complete on these
-    private static final CardTarget TARGET = CardTarget.ENEMY;  //   since they don't change much.
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;  //   since they don't change much.
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCastAway.Enums.COLOR_GRAY;
 
     private static final int COST = 2;  // COST = 2
     private static final int UPGRADED_COST = 2; // UPGRADED_COST = 2
 
-    private static final int DAMAGE = 4;    // DAMAGE = 4
+    private static final int DAMAGE = 3;    // DAMAGE = 4
     private static final int UPGRADE_PLUS_DMG = 2;  // UPGRADE_PLUS_DMG = 2
 
     private static final int MAGIC_NUMBER = 1;

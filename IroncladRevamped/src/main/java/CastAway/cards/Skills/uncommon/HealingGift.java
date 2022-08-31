@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.red.DemonForm;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -39,7 +40,7 @@ public class HealingGift extends AbstractDynamicCard {
 
     // STAT DECLARATION 	
 
-    private static final CardRarity RARITY = CardRarity.BASIC;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheCastAway.Enums.COLOR_GRAY;
@@ -54,9 +55,10 @@ public class HealingGift extends AbstractDynamicCard {
 
     public HealingGift() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseMagicNumber = MAGIC;
-
+        baseMagicNumber = magicNumber = MAGIC;
         exhaust = true;
+
+        tags.add(CardTags.HEALING);
     }
 
     // Actions the card should do.
@@ -64,7 +66,7 @@ public class HealingGift extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int handSize = AbstractDungeon.player.hand.size();
 
-        AbstractDungeon.actionManager.addToBottom(new SelectCardsInHandAction(handSize - 1, "Discard any number of cards", false, true, c -> true, cards -> {
+        AbstractDungeon.actionManager.addToBottom(new SelectCardsInHandAction(handSize - 1, "heal", true, true, c -> true, cards -> {
 
             for (AbstractCard card : cards) {
                 AbstractDungeon.actionManager.addToBottom(new DiscardSpecificCardAction(card));

@@ -38,5 +38,13 @@
       "burning"
     ],
     "DESCRIPTION": "Burn damage. Does not trigger Spikes or on-attack triggers."
+  },
+  {
+    "PROPER_NAME": "Keep",
+    "NAMES": [
+      "Keep",
+      "keep"
+    ],
+    "DESCRIPTION": "Prevent the next time you would exhaust a card."
   }
 ]

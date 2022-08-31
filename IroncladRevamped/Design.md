@@ -29,7 +29,7 @@
 
 #### Relics
 1. Deal X damage to all enemies per discard (except end-turn)
-2. When exhausting a card, add a copy to your discard pile.
+2. When exhausting a card, add a copy to your discard pile. It costs 0 until played.
 3. Once per turn, trigger discard effects twice.
 
 ### Draw
@@ -51,10 +51,10 @@
 
 #### Relics
 
-1. Block X per card drawn
-2. Draw per attack played
-3. Draw the discard
-4. On Rare-Card draw, duplicate for 0 cost
+1. **Indecisiveness**: Gain 1 energy. Lose 1 block when you draw.
+2. **Iron Fist**: Draw per attack played
+3. **Left Handed**: Draw on discard.
+4. **Halluzination**: On Rare-Card draw, duplicate for 0 cost
 
 ### Generic
 

@@ -1,5 +1,18 @@
 package CastAway.cards;
+import CastAway.characters.TheCastAway;
+import CastAway.powers.PreventExhaustPower;
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.MoveCardsAction;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class AbstractDefaultCard extends CustomCard {
 
@@ -11,15 +24,19 @@ public abstract class AbstractDefaultCard extends CustomCard {
     // simply use that in our cards, so long as we put "extends AbstractDynamicCard" instead of "extends CustomCard" at the start.
     // In simple terms, it's for things that we don't want to define again and again in every single card we make.
 
-    public int defaultSecondMagicNumber;        // Just like magic number, or any number for that matter, we want our regular, modifiable stat
-    public int defaultBaseSecondMagicNumber;    // And our base stat - the number in it's base state. It will reset to that by default.
-    public boolean upgradedDefaultSecondMagicNumber; // A boolean to check whether the number has been upgraded or not.
-    public boolean isDefaultSecondMagicNumberModified; // A boolean to check whether the number has been modified or not, for coloring purposes. (red/green)
+    // Exhaust stuff
 
     public int deckExhaust;
     public int baseDeckExhaust;
     public boolean upgradedDeckExhaust;
     public boolean isDeckExhaustModified;
+
+
+
+    public int secondDamage;
+    public int baseSecondDamage;
+    public boolean upgradedSecondDamage;
+    public boolean isSecondDamageModified;
 
     public AbstractDefaultCard(final String id,
                                final String name,
@@ -39,32 +56,33 @@ public abstract class AbstractDefaultCard extends CustomCard {
         isDamageModified = false;
         isBlockModified = false;
         isMagicNumberModified = false;
-        isDefaultSecondMagicNumberModified = false;
         isDeckExhaustModified = false;
+        isSecondDamageModified = false;
     }
 
     public void displayUpgrades() { // Display the upgrade - when you click a card to upgrade it
         super.displayUpgrades();
-        if (upgradedDefaultSecondMagicNumber) { // If we set upgradedDefaultSecondMagicNumber = true in our card.
-            defaultSecondMagicNumber = defaultBaseSecondMagicNumber; // Show how the number changes, as out of combat, the base number of a card is shown.
-            isDefaultSecondMagicNumberModified = true; // Modified = true, color it green to highlight that the number is being changed.
-        }
 
         if (upgradedDeckExhaust) {
             deckExhaust = baseDeckExhaust;
             isDeckExhaustModified = true;
         }
-    }
 
-    public void upgradeDefaultSecondMagicNumber(int amount) { // If we're upgrading (read: changing) the number. Note "upgrade" and NOT "upgraded" - 2 different things. One is a boolean, and then this one is what you will usually use - change the integer by how much you want to upgrade.
-        defaultBaseSecondMagicNumber += amount; // Upgrade the number by the amount you provide in your card.
-        defaultSecondMagicNumber = defaultBaseSecondMagicNumber; // Set the number to be equal to the base value.
-        upgradedDefaultSecondMagicNumber = true; // Upgraded = true - which does what the above method does.
+        if (upgradedSecondDamage) {
+            secondDamage = baseSecondDamage;
+            isSecondDamageModified = true;
+        }
     }
 
     public void upgradeDeckExhaust(int amount) {
         baseDeckExhaust += amount;
         deckExhaust = baseDeckExhaust;
         upgradedDeckExhaust = true;
+    }
+
+    public void upgradeSecondDamage(int amount) {
+        baseSecondDamage += amount;
+        secondDamage = baseSecondDamage;
+        upgradedSecondDamage = true;
     }
 }

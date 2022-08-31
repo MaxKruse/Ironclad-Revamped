@@ -31,7 +31,7 @@
   },
   "CastAway:Throw": {
     "NAME": "Throw",
-    "DESCRIPTION": "Deal !D! castaway:Damage. NL Discard !M! cards. NL Deal !M! castaway:Burning !M! times."
+    "DESCRIPTION": "Deal !D! castaway:Damage. NL Discard !M! cards. NL Deal !CastAway:SECOND_DAMAGE! castaway:Burning 2 times."
   },
   "CastAway:InstantFeedback": {
     "NAME": "Instant Feedback",
@@ -43,10 +43,18 @@
   },
   "CastAway:LostSouls": {
     "NAME": "Lost Souls",
-    "DESCRIPTION": "Deal !D! castaway:Burning for each card in your discard pile that says Exhaust or Discard. NL Exhaust."
+    "DESCRIPTION": "Deal !D! castaway:Burning for each card in your discard pile that says Exhaust or Discard."
   },
   "CastAway:HealingGift": {
     "NAME":  "Healing Gift",
     "DESCRIPTION": "Discard any number of cards from your hand. NL Heal !M! for each card. NL Exhaust."
+  },
+  "CastAway:CleanseMe": {
+    "NAME": "Cleanse",
+    "DESCRIPTION": "Gain !B! block. NL Remove all debuffs."
+  },
+  "CastAway:HoldOn": {
+    "NAME": "Hold On",
+    "DESCRIPTION": "Gain !B! block twice. Gain 1 castaway:Keep."
   }
 }

@@ -22,7 +22,7 @@ public class OptimismRelic extends CustomRelic {
 
     // ID, images, text.
     public static final String ID = DefaultMod.makeID("OptimismRelic");
-    public static final float MULTIPLIER = 0.1f;
+    public static final float MULTIPLIER = 0.15f;
 
     private static final Texture IMG = TextureLoader.getTexture(makeRelicPath("placeholder_relic.png"));
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("placeholder_relic.png"));
@@ -49,7 +49,7 @@ public class OptimismRelic extends CustomRelic {
     // Description
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0];
+        return DESCRIPTIONS[0].replaceAll("!G!", String.format("%d", (long)(MULTIPLIER * 100.0f)));
     }
 
     @Override

@@ -54,22 +54,25 @@ public class Throw extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;       //
     public static final CardColor COLOR = TheCastAway.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;  // COST = 1
+    private static final int COST = 2;  // COST = 1
     private static final int UPGRADED_COST = 1; // UPGRADED_COST = 1
 
     private static final int DAMAGE = 8;    // DAMAGE = 4
-    private static final int UPGRADE_PLUS_DMG = 2;  // UPGRADE_PLUS_DMG = 2
+    private static final int UPGRADE_PLUS_DMG = 3;  // UPGRADE_PLUS_DMG = 2
 
-    private static final int DISCARD_AMOUNT = 1;
-    private static final int UPGRADE_PLUS_DISCARD = 1;
+    private static final int DISCARD_AMOUNT = 2;
+    private static final int UPGRADE_PLUS_DISCARD = -1;
+
+    private static final int DISCARD_DAMAGE = 2;
+    private static final int UPGRADE_PLUS_DISCARD_DAMAGE = 1;
 
     // /STAT DECLARATION/
 
     public Throw() { // public Throw() - This one and the one right under the imports are the most important ones, don't forget them
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        magicNumber = baseMagicNumber = DISCARD_AMOUNT;
-
+        magicNumber = baseMagicNumber = discard = DISCARD_AMOUNT;
+        secondDamage = baseSecondDamage = DISCARD_DAMAGE;
     }
 
 
@@ -82,17 +85,14 @@ public class Throw extends AbstractDynamicCard {
 
 
         AbstractDungeon.actionManager.addToBottom(
-                new DiscardAction(p, p, magicNumber, false)
+                new DiscardAction(p, p, discard, false)
         );
 
         AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, magicNumber, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                new DamageAction(m, new DamageInfo(p, secondDamage, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
-        if (upgraded) {
-            AbstractDungeon.actionManager.addToBottom(
-                    new DamageAction(m, new DamageInfo(p, magicNumber, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        }
-
+        AbstractDungeon.actionManager.addToBottom(
+                new DamageAction(m, new DamageInfo(p, secondDamage, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
 
@@ -104,6 +104,7 @@ public class Throw extends AbstractDynamicCard {
             upgradeDamage(UPGRADE_PLUS_DMG);
             upgradeBaseCost(UPGRADED_COST);
             upgradeMagicNumber(UPGRADE_PLUS_DISCARD);
+            upgradeSecondDamage(UPGRADE_PLUS_DISCARD_DAMAGE);
             initializeDescription();
         }
     }

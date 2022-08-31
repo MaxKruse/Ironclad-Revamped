@@ -24,6 +24,7 @@ public class RewardItemPatch {
             TheCastAway.logger.info("Hit prefix for RewardItem.applyGoldBonus");
             TheCastAway.logger.info("Bonus Gold before: " + __instance.bonusGold);
 
+
             if (AbstractDungeon.player.hasRelic(OptimismRelic.ID)) {
                 int bonusGold = __instance.bonusGold;
 

@@ -35,7 +35,42 @@
     "NAME": "Optimism",
     "FLAVOUR": "You lost everything, but are much better at keeping and valuing things now.",
     "DESCRIPTIONS": [
-      "Gain 10% Extra gold. Items in the shop cost 10% less."
+      "Gain !G!% Extra gold. Items in the shop cost !G!% less."
+    ]
+  },
+  "CastAway:NothingIsLostRelic": {
+    "NAME": "Nothing is Lost",
+    "FLAVOUR": "Even if you think you lost something, is it really gone?",
+    "DESCRIPTIONS": [
+      "When exhausting a card, have a 50% chance to add a copy into your discard pile. NL It costs 0 until played."
+    ]
+  },
+  "CastAway:IronFistRelic": {
+    "NAME": "Iron Fist",
+    "FLAVOUR": "For every strike, there is an equal response.",
+    "DESCRIPTIONS": [
+      "When playing an attack, draw a card."
+    ]
+  },
+  "CastAway:LeftHandedRelic": {
+    "NAME": "Left Handed",
+    "FLAVOUR": "Are you sure you are doing the right thing?",
+    "DESCRIPTIONS": [
+      "When you discard, draw a card."
+    ]
+  },
+  "CastAway:HallucinationRelic": {
+    "NAME": "Hallucination",
+    "FLAVOUR": "Are you sure what you see is real?",
+    "DESCRIPTIONS": [
+      "The first rare card you draw each combat gets duplicated. NL It costs 0 until played."
+    ]
+  },
+  "CastAway:IndecisivenessRelic": {
+    "NAME": "Indecisiveness",
+    "FLAVOUR": "Should you really do it?",
+    "DESCRIPTIONS": [
+      "Gain 1 [E] at the start of your turn. The first time you exhaust a card each combat, lose !D! HP."
     ]
   }
 }

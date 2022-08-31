@@ -22,5 +22,9 @@
         "CastAway:LostPower": {
                 "NAME": "Lost",
                 "DESCRIPTIONS" : ["Gain 1 energy next turn."]
+        },
+        "CastAway:PreventExhaustPower": {
+                "NAME": "Prevent Exhaust",
+                "DESCRIPTIONS": ["Prevents the next time you would exhaust."]
         }
 }

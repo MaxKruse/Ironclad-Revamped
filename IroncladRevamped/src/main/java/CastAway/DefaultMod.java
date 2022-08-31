@@ -1,7 +1,8 @@
 package CastAway;
 
-import CastAway.relics.OptimismRelic;
+import CastAway.relics.*;
 import CastAway.variables.DeckExhaust;
+import CastAway.variables.SecondDamage;
 import basemod.*;
 import basemod.eventUtil.AddEventParams;
 import basemod.interfaces.*;
@@ -13,11 +14,13 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,8 +30,6 @@ import CastAway.events.IdentityCrisisEvent;
 import CastAway.potions.PlaceholderPotion;
 import CastAway.util.IDCheckDontTouchPls;
 import CastAway.util.TextureLoader;
-import CastAway.variables.DefaultCustomVariable;
-import CastAway.variables.DefaultSecondMagicNumber;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -389,10 +390,14 @@ public class DefaultMod implements
         // in order to automatically differentiate which pool to add the relic too.
 
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        //BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheCastAway.Enums.COLOR_GRAY);
-        //BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheCastAway.Enums.COLOR_GRAY);
-        //BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheCastAway.Enums.COLOR_GRAY);
+        // BaseMod.addRelicToCustomPool(new PlaceholderRelic(), TheCastAway.Enums.COLOR_GRAY);
+        // BaseMod.addRelicToCustomPool(new BottledPlaceholderRelic(), TheCastAway.Enums.COLOR_GRAY);
+        // BaseMod.addRelicToCustomPool(new DefaultClickableRelic(), TheCastAway.Enums.COLOR_GRAY);
         BaseMod.addRelicToCustomPool(new OptimismRelic(), TheCastAway.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new NothingIsLostRelic(), TheCastAway.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new IronFistRelic(), TheCastAway.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new HallucinationRelic(), TheCastAway.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(new IndecisivenessRelic(), TheCastAway.Enums.COLOR_GRAY);
         
         // This adds a relic to the Shared pool. Every character can find this relic.
         // BaseMod.addRelic(new PlaceholderRelic2(), RelicType.SHARED);
@@ -418,6 +423,7 @@ public class DefaultMod implements
         logger.info("Add variables");
         // Add the Custom Dynamic variables
         BaseMod.addDynamicVariable(new DeckExhaust());
+        BaseMod.addDynamicVariable(new SecondDamage());
         
         logger.info("Adding cards");
         // Add the cards

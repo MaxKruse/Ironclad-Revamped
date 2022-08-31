@@ -49,7 +49,6 @@ public class LostSouls extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = damage = DAMAGE;
         isMultiDamage = true;
-        exhaust = true;
     }
 
 

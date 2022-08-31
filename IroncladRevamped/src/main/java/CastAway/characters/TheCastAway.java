@@ -20,22 +20,12 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.relics.Brimstone;
-import com.megacrit.cardcrawl.relics.GoldenIdol;
-import com.megacrit.cardcrawl.relics.HoveringKite;
-import com.megacrit.cardcrawl.relics.MembershipCard;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import CastAway.DefaultMod;
-import CastAway.cards.*;
-import CastAway.relics.DefaultClickableRelic;
-import CastAway.relics.PlaceholderRelic;
-import CastAway.relics.PlaceholderRelic2;
 
 import java.util.ArrayList;
 
@@ -70,11 +60,11 @@ public class TheCastAway extends CustomPlayer {
 
     // =============== BASE STATS =================
 
-    public static final int ENERGY_PER_TURN = 15;
-    public static final int STARTING_HP = 90;
-    public static final int MAX_HP = 90;
-    public static final int STARTING_GOLD = 99;
-    public static final int CARD_DRAW = 8;
+    public static final int ENERGY_PER_TURN = 3;
+    public static final int STARTING_HP = 70;
+    public static final int MAX_HP = 70;
+    public static final int STARTING_GOLD = 49;
+    public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
 
     // =============== /BASE STATS/ =================
@@ -276,9 +266,9 @@ public class TheCastAway extends CustomPlayer {
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-                AbstractGameAction.AttackEffect.BLUNT_HEAVY};
+                AbstractGameAction.AttackEffect.SLASH_HORIZONTAL,
+                AbstractGameAction.AttackEffect.LIGHTNING,
+                AbstractGameAction.AttackEffect.FIRE};
     }
 
     // Should return a string containing what text is shown when your character is
